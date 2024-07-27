@@ -1,4 +1,7 @@
 
+using ExaminationSystem.Data;
+using ExaminationSystem.Repositories;
+
 namespace ExaminationSystem
 {
     public class Program
@@ -13,6 +16,9 @@ namespace ExaminationSystem
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddDbContext<Context>();
+            builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
+
 
             var app = builder.Build();
 
